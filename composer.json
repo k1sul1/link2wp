@@ -1,0 +1,14 @@
+{
+    "name": "k1sul1/link2wp",
+    "description": "This PHP class / wordpress plugin will take an array of links to crawl, and will fetch said links and turn them into WP posts. Originally made to reinforce Drupal2Wordpress plugin that did an awesome job, but wasn't able to fetch custom post types from drupal.",
+    "require": {
+        "symfony/dom-crawler": "^3.0",
+        "symfony/css-selector": "^3.0"
+    },
+    "authors": [
+        {
+            "name": "Christian Nikkanen",
+            "email": "christian.nikkanen@gmail.com"
+        }
+    ]
+}
