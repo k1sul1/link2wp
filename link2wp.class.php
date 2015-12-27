@@ -14,10 +14,10 @@ class Link2WP {
 
 	function __construct($debug_mode = false){
 		if($debug_mode){
-			$this->debug_mode = true;
+			self::$debug_mode = true;
 		}
 		else{
-			$this->debug_mode = false;
+			self::$debug_mode = false;
 		}
 	}
 
@@ -44,7 +44,7 @@ class Link2WP {
 				$parsed_page->content = $domElement->nodeValue;
 		}
 
-		if($this->debug_mode){
+		if(self::$debug_mode){
 			echo "Parsed page:".PHP_EOL;
 			print_r($parsed_page);
 		}
@@ -71,7 +71,7 @@ class Link2WP {
 			$p[$option_key] = $option_value;
 		}
 
-		if($this->debug_mode){
+		if(self::$debug_mode){
 			echo "Post creation is disabled in debug mode. Arguments: ".PHP_EOL;
 			var_dump($p);
 			return;
@@ -104,7 +104,7 @@ class Link2WP {
 			$p[$option_key] = $option_value;
 		}
 
-		if($this->debug_mode){
+		if(self::$debug_mode){
 			echo "Post updates are disabled in debug mode. Arguments: ".PHP_EOL;
 			var_dump($p);
 			return;
@@ -150,7 +150,7 @@ class Link2WP {
 			}
 		}
 
-		if($this->debug_mode){
+		if(self::$debug_mode){
 			echo "Links array: ".PHP_EOL;
 			var_dump($links);
 
