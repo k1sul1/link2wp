@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 require "vendor/autoload.php";
 
@@ -79,6 +79,8 @@ class Link2WP {
 
 		$post_id = wp_insert_post($p);
 
+		//call_user_func_array("link2wp_createpost_callback",array($post_id,link??));
+
 		return $post_id;
 	}
 
@@ -110,7 +112,7 @@ class Link2WP {
 			return;
 		}
 
-		$post_id = wp_insert_post($p);
+		$post_id = wp_update_post($p);
 
 		return $post_id;
 	}
@@ -140,6 +142,8 @@ class Link2WP {
 			if(!$page_contents) throw new Exception("Request timed out / 404 at link: $link", 1);
 
 			$parsed_page = $this->parsePage($page_contents,$bodypart, (isset($titlepart) ? $titlepart : null));
+
+			$opt['link2wp_original_link'] = $link; // Pass the original link (callback could use it)
 
 			if($update){
 				$this->updatePost($id,$parsed_page->title,$parsed_page->content,$opt);
